@@ -1,0 +1,22 @@
+{
+    "Super Mario": {
+        "quantidade": 10,
+        "valor": 20
+    },
+    "Super Mario 2": {
+        "quantidade": 10,
+        "valor": 20
+    },
+    "Super Mario 3": {
+        "quantidade": 10,
+        "valor": 20
+    },
+    "TLOU": {
+        "quantidade": 40,
+        "valor": 10
+    },
+    "TLOU 2": {
+        "quantidade": 20,
+        "valor": 10
+    }
+}
