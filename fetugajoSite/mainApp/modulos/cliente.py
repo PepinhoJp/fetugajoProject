@@ -1,6 +1,6 @@
 import json
-def verificaCliente(path, nome):
-    
+def verificaCliente(nomeCliente):
+    path = "data/clientes.json"
     f = open(path, "r")
     c = json.load(f)
     f.close()
@@ -8,7 +8,8 @@ def verificaCliente(path, nome):
         return True
     return False
 
-def criaCliente(path, nomeCliente):
+def criaCliente(nomeCliente):
+    path = "data/clientes.json"
     with open(path) as f:
         f = open(path, "r")
         jogos = json.load(f)
@@ -16,7 +17,8 @@ def criaCliente(path, nomeCliente):
         json.dump(jogos, open(path, "w"), indent=4)
     return
 
-def removeCliente(path, nome):
+def removeCliente(nomeCliente):
+    path = "data/clientes.json"
     f = open(path, "r")
     c = json.load(f)
     
