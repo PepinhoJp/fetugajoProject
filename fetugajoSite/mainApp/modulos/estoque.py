@@ -10,9 +10,9 @@ def buscaNoEstoque(path, nomeJogo):
     f.close()
     return False
 
-def adicionaEstoqueAluguel(path, nomeJogo, qnt):
-    with open(path) as f:
-        f = open(path, "r")
+def adicionaEstoqueAluguel(nomeJogo, qnt):
+    path = "data/estoqueAluguel.json"
+    with open(path, "r") as f:
         jogos = json.load(f)
         # Se o jogo ja esta no estoque
         if nomeJogo in jogos:
