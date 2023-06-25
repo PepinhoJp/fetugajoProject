@@ -1,8 +1,7 @@
 import json
-from estoque import *
-from cliente import *
-from saldo import *
-
+from .estoque import *
+from .cliente import *
+from .saldo import *
 
 def validaAluguel(f):
     def valida(nomeJogo, nomeCliente):
