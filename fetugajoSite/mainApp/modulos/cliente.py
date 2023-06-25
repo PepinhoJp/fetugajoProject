@@ -4,7 +4,7 @@ def verificaCliente(nomeCliente):
     f = open(path, "r")
     c = json.load(f)
     f.close()
-    if nome in c:
+    if nomeCliente in c:
         return True
     return False
 
@@ -22,6 +22,12 @@ def removeCliente(nomeCliente):
     f = open(path, "r")
     c = json.load(f)
     
-    if verificaCliente(path, nome):
-        del c[nome]
-                
+    if verificaCliente(path, nomeCliente):
+        c.pop(nomeCliente)
+
+def exibeClientes():
+    path = "data/clientes.json"
+    f = open(path, "r")
+    c = json.load(f)
+    f.close()
+    return c
