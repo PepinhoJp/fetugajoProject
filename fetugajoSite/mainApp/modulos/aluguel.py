@@ -21,5 +21,5 @@ def alugaJogo(nomeJogo, nomeCliente):
     return 2
 
 def devolveJogo(nomeJogo):
-    adicionaEstoqueAluguel(nomeJogo)
+    adicionaEstoqueAluguel(nomeJogo, 1)
     return
