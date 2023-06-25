@@ -29,5 +29,19 @@ def alugaJogo(nomeJogo, nomeCliente):
     return 1
 
 def devolveJogo(nomeJogo):
-    adicionaEstoqueAluguel(nomeJogo, 1)
+    path = "data/estoqueAluguel.json"
+    f = open(path, "r")
+    jogos = json.load(f)
+    quantAtual = jogos[nomeJogo]['quantidade']
+    f.close()
+    
+    path = "data/estoqueTotal.json"
+    f = open(path, "r")
+    jogos = json.load(f)
+    quantTotal = jogos[nomeJogo]['quantidade']
+    f.close()
+    
+    if quantAtual < quantTotal:
+        adicionaEstoqueAluguel(nomeJogo, 1)
+    
     return
