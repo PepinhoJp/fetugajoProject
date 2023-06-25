@@ -43,5 +43,6 @@ def devolveJogo(nomeJogo):
     
     if quantAtual < quantTotal:
         adicionaEstoqueAluguel(nomeJogo, 1)
+        return 0
     
-    return
+    return 1
