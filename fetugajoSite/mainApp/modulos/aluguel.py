@@ -6,7 +6,7 @@ import compra.py
 def validaAluguel(f):
     def valida(nomeJogo, nomeCliente):
         if verificaCliente(nomeCliente):
-            return alugaJogo(nomeJogo, nomeCliente)
+            return f(nomeJogo, nomeCliente)
         return 2
     return valida
 
