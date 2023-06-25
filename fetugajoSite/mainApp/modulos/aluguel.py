@@ -21,9 +21,5 @@ def alugaJogo(nomeJogo, nomeCliente):
     return 2
 
 def devolveJogo(nomeJogo):
-    path = "data/estoqueAluguel.json"
-    with open(path, "r") as f:
-        jogos = json.load(f)
-        atual = jogos[nomeJogo]['quantidade']
-        jogos[nomeJogo]['quantidade'] = atual + qnt
+    adicionaEstoqueAluguel(nomeJogo)
     return
