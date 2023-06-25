@@ -1,6 +1,7 @@
 import json
 from saldo import removeSaldo, verificaSaldo
 from estoque import AdicionaEstoqueTotal
+
 def adicionaPreferencia(nomejogo, path):
     data={"tipo":"preferencia-novo-jogo", "dados": {"nome": nomejogo, "preco": 5, "fabricante": "Microny"}}
     path = path + nomejogo

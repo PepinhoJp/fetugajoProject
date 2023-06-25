@@ -78,7 +78,7 @@ def removeEstoqueAluguel(nomeJogo, qnt):
         json.dump(jogos, open(path, "w"), indent=4)
     return
 
-def exibeEstoque():
+def verificaEstoque():
     pathAluguel = "data/estoqueAluguel.json"
     pathTotal = "data/estoqueTotal.json"
 
@@ -87,14 +87,23 @@ def exibeEstoque():
     jogosAlugados = json.load(fAluguel)
     jogosTotal = json.load(fTotal)
 
+    dicRetorno = {}
+
     for jogo in jogosTotal:
-        print(jogo + ":")
-        print("\tPreço: " + str(jogosTotal[jogo]['valor']))
-        print("\tQuantidade total: " + str(jogosTotal[jogo]['quantidade']))
-        print("\tAlugados: " + str(jogosTotal[jogo]['quantidade'] - jogosAlugados[jogo]['quantidade']))
-        print("\tDisponiveis para aluguel: " + str(jogosAlugados[jogo]['quantidade']))
+        dicAuxiliar = {}
+
+        #Qnt total
+        dicAuxiliar['total'] = jogosTotal[jogo]['quantidade']
+
+        #Alugados
+        dicAuxiliar['alugados'] = jogosTotal[jogo]['quantidade'] - jogosAlugados[jogo]['quantidade']
+
+        #Disponiveis para aluguel
+        dicAuxiliar['disponiveis'] = jogosAlugados[jogo]['quantidade']
+
+        dicRetorno[jogo] = dicAuxiliar
 
     fTotal.close()
     fAluguel.close()
 
-    return
+    return dicRetorno

@@ -1,6 +1,6 @@
 import json
 
-def verificaSaldo(path):
+def verificaSaldo():
     f = open("data/saldo.json", "r")
     saldoEmpresa = json.load(f)
 

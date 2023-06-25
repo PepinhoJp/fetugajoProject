@@ -1,0 +1,28 @@
+{% block content %}
+<div style="text-align: center;">
+  <img src="https://cdn.discordapp.com/attachments/393209589924888577/1122639683642470470/image.png" height="200" width="200">
+
+  <h2>Saldo da empresa: {{ saldo }}</h2>
+</div>
+
+<h2> Estoque da empresa </h2>
+  {% for jogo, info in estoque.items %}
+    <tr>
+      <div>
+        <h4> Jogo: {{ jogo }} </h4>
+        <div> Quantidade total: {{ info.total }} </div>
+        <div> Alugados: {{ info.alugados }} </div>
+        <div> Disponiveis para aluguel: {{ info.disponiveis }} </div>
+        </div>
+    </tr>
+{% endfor %}
+
+<form method="post">
+    <label for="nome_jogo">Nome jogo: </label>
+    <input id="nome_jogo" type="text" name="jogo" value="{{ nome_jogo }}">
+    <input type="submit" value="OK">
+</form>
+
+
+
+{% endblock %}
