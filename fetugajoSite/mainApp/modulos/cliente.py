@@ -11,7 +11,6 @@ def verificaCliente(nomeCliente):
 def criaCliente(nomeCliente):
     path = "data/clientes.json"
     with open(path) as f:
-        f = open(path, "r")
         jogos = json.load(f)
         jogos[nomeCliente] = {}
         json.dump(jogos, open(path, "w"), indent=4)
