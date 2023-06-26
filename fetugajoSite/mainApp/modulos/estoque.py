@@ -70,27 +70,7 @@ def removeEstoqueAluguel(nomeJogo, qnt):
             return 1
 
         json.dump(jogos, open(path, "w"), indent=4)
-    return
-
-def removeEstoqueAluguel(nomeJogo, qnt):
-    path = "data/estoqueAluguel.json"
-    with open(path, "r") as f:
-        jogos = json.load(f)
-        # Se o jogo ja esta no estoque
-        if nomeJogo in jogos:
-
-            atual = jogos[nomeJogo]['quantidade']
-            if (atual - qnt < 0):
-                return "Nao ha suficiente desse jogo para remover"
-            if (atual - qnt == 0):
-                jogos.pop(nomeJogo)
-            else:
-                jogos[nomeJogo]['quantidade'] = atual - qnt
-        else:
-            return "Jogo nao esta no estoque para fazer a remoção"
-
-        json.dump(jogos, open(path, "w"), indent=4)
-    return
+    return 0
 
 def verificaEstoque():
     pathAluguel = "data/estoqueAluguel.json"
