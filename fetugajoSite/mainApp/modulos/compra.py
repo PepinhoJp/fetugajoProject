@@ -29,7 +29,7 @@ def compraJogo(nomejogo, pathval, pathpref):
 
 def recebePrecoCompra(nomejogo, path):
     if type(nomeJogo) != str:
-        return 1
+        return 0
     with open(path, 'r') as arq:
         dados_json = json.load(arq)
         for el in range(len(dados_json)):
