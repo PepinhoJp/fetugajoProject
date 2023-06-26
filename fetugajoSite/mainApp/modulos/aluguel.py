@@ -30,7 +30,7 @@ def alugaJogo(nomeJogo, nomeCliente):
     return 1
 
 def devolveJogo(nomeJogo):
-    if type(nomeJogo) != string:
+    if type(nomeJogo) != str:
         return 2
     
     path = "data/estoqueAluguel.json"
