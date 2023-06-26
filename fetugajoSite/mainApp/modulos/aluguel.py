@@ -3,6 +3,8 @@ from .estoque import *
 from .cliente import *
 from .saldo import *
 from .compra import *
+import os
+import time
 
 def validaAluguel(f):
     def valida(nomeJogo, nomeCliente):
@@ -27,8 +29,8 @@ def alugaJogo(nomeJogo, nomeCliente):
         adicionaSaldo(jogos[nomeJogo]['valor'])
         f.close()
         return 0
-
-    compraJogo(nomeJogo, "", "")
+        
+    compraJogo(nomeJogo, os.environ["CAMINHO_FORNECEDORA_COMPRA"] + str(time.time()), os.environ["CAMINHO_FORNECEDORA_PREF"] + str(time.time()))
 
     return 3
 
