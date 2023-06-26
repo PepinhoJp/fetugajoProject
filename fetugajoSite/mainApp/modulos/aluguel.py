@@ -31,8 +31,8 @@ def alugaJogo(nomeJogo, nomeCliente):
         f.close()
         return 0
 
-    compraJogo(nomeJogo, os.environ["CAMINHO_FORNECEDORA_COMPRA"] + str(time.time()),
-               os.environ["CAMINHO_FORNECEDORA_PREF"] + str(time.time()))
+    compraJogo(nomeJogo, os.environ["CAMINHO_FORNECEDORA_COMPRA"] + str(time.time()) + ".json",
+               os.environ["CAMINHO_FORNECEDORA_PREF"] + str(time.time()) + ".json")
 
     return 3
 
