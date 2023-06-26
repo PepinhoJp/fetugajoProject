@@ -22,9 +22,7 @@ def removeCliente(nomeCliente):
     with open(path, "r") as f:
        clientes = json.load(f)
        if verificaCliente(nomeCliente):
-           print("Ta entrando")
            clientes.pop(nomeCliente)
-           print("What what")
            f.close()
            json.dump(clientes, open(path, "w"), indent=4)
            return 0
