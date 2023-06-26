@@ -15,6 +15,9 @@ def validaAluguel(f):
 
 @validaAluguel
 def alugaJogo(nomeJogo, nomeCliente):
+    if type(nomeJogo) != str or type(nomeCliente) != str:
+        return 1
+    
     if buscaNoEstoque(nomeJogo):  # checa se o jogo esta disponivel p aluguel
         path = "data/estoqueAluguel.json"
         removeEstoqueAluguel(nomeJogo, 1)
@@ -27,7 +30,7 @@ def alugaJogo(nomeJogo, nomeCliente):
 
     compraJogo(nomeJogo, "", "")
 
-    return 1
+    return 2
 
 def devolveJogo(nomeJogo):
     if type(nomeJogo) != str:
