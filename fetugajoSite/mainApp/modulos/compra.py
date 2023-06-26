@@ -1,6 +1,7 @@
 import json
 from .saldo import *
 from .estoque import *
+from time import time
 
 def adicionaPreferencia(nomejogo, path):
     if type(nomejogo) != str:
@@ -22,7 +23,7 @@ def compraJogo(nomejogo, pathtabela, pathmsg):
         removeSaldo(preco)
         adicionaEstoqueTotal(nomejogo, 1)
         data={"tipo":"venda-jogo", "dados": nomejogo}
-        path = pathmsg + nomejogo + ".json"
+        path = pathmsg + nomejogo + str(int(time())) + ".json"
         with open(path, "w") as arq:
             json.dump(data,arq, indent = 4)
         return 0
