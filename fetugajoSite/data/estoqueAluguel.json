@@ -1,14 +1,26 @@
 {
-  "Super Mario": {
-    "quantidade": 6,
-    "valor": 20
-  },
-  "Super Mario 2": {
-    "quantidade": 10,
-    "valor": 20
-  },
-  "Super Mario 3": {
-    "quantidade": 10,
-    "valor": 20
-  }
+    "Super Mario": {
+        "quantidade": 14,
+        "valor": 20
+    },
+    "Super Mario 2": {
+        "quantidade": 10,
+        "valor": 20
+    },
+    "Super Mario 3": {
+        "quantidade": 10,
+        "valor": 20
+    },
+    "oi": {
+        "quantidade": 1,
+        "valor": 10
+    },
+    "": {
+        "quantidade": 6,
+        "valor": 10
+    },
+    "aa": {
+        "quantidade": 4,
+        "valor": 10
+    }
 }
