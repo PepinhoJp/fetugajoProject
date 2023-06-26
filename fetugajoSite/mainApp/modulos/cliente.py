@@ -9,6 +9,10 @@ def verificaCliente(nomeCliente):
     return False
 
 def criaCliente(nomeCliente):
+    if type(nomeCliente) != str:
+        return 1
+    if verificaCliente(nomeCliente):
+        return 2
     path = "data/clientes.json"
     with open(path) as f:
         jogos = json.load(f)
