@@ -15,7 +15,7 @@ def criaCliente(nomeCliente):
         jogos = json.load(f)
         jogos[nomeCliente] = {}
         json.dump(jogos, open(path, "w"), indent=4)
-    return
+    return 0
 
 def removeCliente(nomeCliente):
     path = "clientes.json"
