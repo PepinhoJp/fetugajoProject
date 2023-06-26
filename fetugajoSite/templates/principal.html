@@ -17,12 +17,55 @@
     </tr>
 {% endfor %}
 
-<form method="post">
-    <label for="nome_jogo">Nome jogo: </label>
-    <input id="nome_jogo" type="text" name="jogo" value="{{ nome_jogo }}">
+<div>
+    <h2>Devolução de jogos</h2>
+<form method="post"> {% csrf_token %}
+    <label>Nome jogo: </label>
+    <input type="text" name="jogo" value="{{ nome_jogo }}">
+
+
     <input type="submit" value="OK">
 </form>
+</div>
+
+<div>
+    <h2>Aluguel de jogos</h2>
+<form method="post"> {% csrf_token %}
+    <label>Nome jogo: </label>
+    <input type="text" name="jogoAluga" value="{{ nome_jogo }}">
+
+    <label>Nome cliente: </label>
+    <input type="text" name="cliente" value="{{ nome_cliente }}">
 
 
+    <input type="submit" value="OK">
+</form>
+</div>
+
+<h2> Clientes </h2>
+  {% for nome, info in clientes.items %}
+    <tr>
+      <div> {{ nome }} </div>
+    </tr>
+{% endfor %}
+
+<div>
+    <h2>Cadastra cliente</h2>
+<form method="post"> {% csrf_token %}
+    <label>Nome cliente: </label>
+    <input type="text" name="cadastraCliente" value="{{ cadastra_cliente }}">
+    <input type="submit" value="OK">
+</form>
+</div>
+
+
+<div>
+    <h2>Remove cliente</h2>
+<form method="post"> {% csrf_token %}
+    <label>Nome cliente: </label>
+    <input type="text" name="removeCliente" value="{{ remove_cliente }}">
+    <input type="submit" value="OK">
+</form>
+</div>
 
 {% endblock %}
