@@ -22,7 +22,7 @@ def removeCliente(nomeCliente):
     f = open(path, "r")
     c = json.load(f)
     
-    if verificaCliente(path, nomeCliente):
+    if verificaCliente(nomeCliente):
         c.pop(nomeCliente)
 
 def exibeClientes():

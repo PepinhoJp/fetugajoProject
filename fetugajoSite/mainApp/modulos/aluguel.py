@@ -2,6 +2,7 @@ import json
 from .estoque import *
 from .cliente import *
 from .saldo import *
+from .compra import *
 
 def validaAluguel(f):
     def valida(nomeJogo, nomeCliente):
@@ -24,25 +25,10 @@ def alugaJogo(nomeJogo, nomeCliente):
         f.close()
         return 0
 
-    compraJogo(nomeJogo)
+    compraJogo(nomeJogo, "", "")
 
     return 1
 
 def devolveJogo(nomeJogo):
-    path = "data/estoqueAluguel.json"
-    f = open(path, "r")
-    jogos = json.load(f)
-    quantAtual = jogos[nomeJogo]['quantidade']
-    f.close()
-    
-    path = "data/estoqueTotal.json"
-    f = open(path, "r")
-    jogos = json.load(f)
-    quantTotal = jogos[nomeJogo]['quantidade']
-    f.close()
-    
-    if quantAtual < quantTotal:
-        adicionaEstoqueAluguel(nomeJogo, 1)
-        return 0
-    
-    return 1
+    adicionaEstoqueAluguel(nomeJogo, 1)
+    return
