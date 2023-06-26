@@ -3,7 +3,7 @@ from .saldo import *
 from .estoque import *
 
 def adicionaPreferencia(nomejogo, path):
-    if type(nomeJogo) != str:
+    if type(nomejogo) != str:
         return 1
     data={"tipo":"preferencia-novo-jogo", "dados": {"nome": nomejogo, "preco": 5, "fabricante": "Microny"}}
     path = path + nomejogo
@@ -12,7 +12,7 @@ def adicionaPreferencia(nomejogo, path):
     return 0
 
 def compraJogo(nomejogo, pathval, pathpref):
-    if type(nomeJogo) != str:
+    if type(nomejogo) != str:
         return 1
     preco = recebePrecoCompra(nomejogo, pathval)
     if preco < 0:
@@ -28,7 +28,7 @@ def compraJogo(nomejogo, pathval, pathpref):
     return
 
 def recebePrecoCompra(nomejogo, path):
-    if type(nomeJogo) != str:
+    if type(nomejogo) != str:
         return 0
     with open(path, 'r') as arq:
         dados_json = json.load(arq)
