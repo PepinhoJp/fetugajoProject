@@ -1,5 +1,6 @@
 import json
-def buscaNoEstoque(path, nomeJogo):
+def buscaNoEstoque(nomeJogo):
+    path = "data/estoqueAluguel.json"
     if type(nomeJogo) != str:
         return 2
     f = open(path, "r")
