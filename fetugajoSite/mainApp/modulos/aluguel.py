@@ -6,6 +6,7 @@ from .compra import *
 import os
 import time
 
+
 def validaAluguel(f):
     def valida(nomeJogo, nomeCliente):
         if verificaCliente(nomeCliente):
@@ -19,7 +20,7 @@ def validaAluguel(f):
 def alugaJogo(nomeJogo, nomeCliente):
     if type(nomeJogo) != str or type(nomeCliente) != str:
         return 1
-    
+
     if buscaNoEstoque(nomeJogo):  # checa se o jogo esta disponivel p aluguel
         path = "data/estoqueAluguel.json"
         removeEstoqueAluguel(nomeJogo, 1)
@@ -29,10 +30,12 @@ def alugaJogo(nomeJogo, nomeCliente):
         adicionaSaldo(jogos[nomeJogo]['valor'])
         f.close()
         return 0
-        
-    compraJogo(nomeJogo, os.environ["CAMINHO_FORNECEDORA_COMPRA"] + str(time.time()), os.environ["CAMINHO_FORNECEDORA_PREF"] + str(time.time()))
+
+    compraJogo(nomeJogo, os.environ["CAMINHO_FORNECEDORA_COMPRA"] + str(time.time()),
+               os.environ["CAMINHO_FORNECEDORA_PREF"] + str(time.time()))
 
     return 3
+
 
 def devolveJogo(nomeJogo):
     if type(nomeJogo) != str:
@@ -43,16 +46,16 @@ def devolveJogo(nomeJogo):
         jogos = json.load(f)
         quantAtual = jogos[nomeJogo]['quantidade']
         f.close()
-    
+
         path = "data/estoqueTotal.json"
         f = open(path, "r")
         jogos = json.load(f)
         quantTotal = jogos[nomeJogo]['quantidade']
         f.close()
-    
+
         if quantAtual < quantTotal:
             adicionaEstoqueAluguel(nomeJogo, 1)
             return 0
-    
+
         return 1
     return 3

@@ -21,7 +21,7 @@ def criaCliente(nomeCliente):
     return 0
 
 def removeCliente(nomeCliente):
-    path = "clientes.json"
+    path = "data/clientes.json"
     with open(path, "r") as f:
        clientes = json.load(f)
        if verificaCliente(nomeCliente):

@@ -47,6 +47,9 @@ def adicionaEstoqueTotal(nomeJogo, qnt):
             #Se o jogo nao esta no estoque, adiciona ele
             jogos[nomeJogo] = {"quantidade": qnt, "valor": 10}
         json.dump(jogos, open(path, "w"), indent=4)
+
+        adicionaEstoqueAluguel(nomeJogo, qnt)
+
     return 0
 
 def removeEstoqueAluguel(nomeJogo, qnt):

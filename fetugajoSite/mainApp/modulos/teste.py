@@ -1,8 +1,8 @@
 from saldo import *
-from aluguel import *
-from compra import *
-from estoque import *
-from cliente import *
+from .aluguel import *
+from .compra import *
+from .estoque import *
+from .cliente import *
 
 def teste(ret, retornoEsperado):
     if ret == retornoEsperado:
