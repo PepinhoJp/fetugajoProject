@@ -30,7 +30,7 @@ def alugaJogo(nomeJogo, nomeCliente):
 
     compraJogo(nomeJogo, "", "")
 
-    return 2
+    return 3
 
 def devolveJogo(nomeJogo):
     if type(nomeJogo) != str:
