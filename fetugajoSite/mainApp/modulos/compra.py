@@ -1,24 +1,30 @@
 import json
-from saldo import removeSaldo, verificaSaldo
-from estoque import AdicionaEstoqueTotal
+from .saldo import *
+from .estoque import *
 
 def adicionaPreferencia(nomejogo, path):
+    if type(nomeJogo) != str:
+        return 1
     data={"tipo":"preferencia-novo-jogo", "dados": {"nome": nomejogo, "preco": 5, "fabricante": "Microny"}}
     path = path + nomejogo
     with open(path , "w") as arq:
         json.dump(data,arq,indent=4) 
-
+    return 0
 
 def compraJogo(nomejogo, pathval, pathpref):
-    preco= recebePrecoCompra(nomejogo, pathval)
+    if type(nomeJogo) != str:
+        return 1
+    preco = recebePrecoCompra(nomejogo, pathval)
     if type(preco)== str:
         adicionaPreferencia(nomejogo, pathpref)
         return
     if verificaSaldo()>=preco:
         removeSaldo(preco)
         AdicionaEstoqueTotal(nomejogo)
+        return 0
     else:
         adicionaPreferencia(nomejogo, pathpref)
+        return 2
     return
 
 def recebePrecoCompra(nomejogo, path):
