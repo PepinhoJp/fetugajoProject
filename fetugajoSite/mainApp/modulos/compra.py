@@ -15,9 +15,9 @@ def compraJogo(nomejogo, pathval, pathpref):
     if type(nomeJogo) != str:
         return 1
     preco = recebePrecoCompra(nomejogo, pathval)
-    if type(preco)== str:
+    if preco < 0:
         adicionaPreferencia(nomejogo, pathpref)
-        return
+        return 3
     if verificaSaldo()>=preco:
         removeSaldo(preco)
         AdicionaEstoqueTotal(nomejogo)
@@ -28,6 +28,8 @@ def compraJogo(nomejogo, pathval, pathpref):
     return
 
 def recebePrecoCompra(nomejogo, path):
+    if type(nomeJogo) != str:
+        return 1
     with open(path, 'r') as arq:
         dados_json = json.load(arq)
         for el in range(len(dados_json)):
@@ -35,4 +37,4 @@ def recebePrecoCompra(nomejogo, path):
                 preco = dados_json[el]["preco"]
                 return preco
         ##nao existe o nomejogo no arquivo
-    return "jogo não consta na tabela de preços"
+    return -1
