@@ -20,7 +20,7 @@ def compraJogo(nomejogo, pathval, pathpref):
         return 3
     if verificaSaldo()>=preco:
         removeSaldo(preco)
-        AdicionaEstoqueTotal(nomejogo)
+        adicionaEstoqueTotal(nomejogo, 1)
         return 0
     else:
         adicionaPreferencia(nomejogo, pathpref)
