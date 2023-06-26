@@ -18,12 +18,17 @@ def criaCliente(nomeCliente):
     return
 
 def removeCliente(nomeCliente):
-    path = "data/clientes.json"
-    f = open(path, "r")
-    c = json.load(f)
-    
-    if verificaCliente(nomeCliente):
-        c.pop(nomeCliente)
+    path = "clientes.json"
+    with open(path, "r") as f:
+       clientes = json.load(f)
+       if verificaCliente(nomeCliente):
+           print("Ta entrando")
+           clientes.pop(nomeCliente)
+           print("What what")
+           f.close()
+           json.dump(clientes, open(path, "w"), indent=4)
+           return 0
+       return 1
 
 def exibeClientes():
     path = "data/clientes.json"
