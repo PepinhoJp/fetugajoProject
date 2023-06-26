@@ -6,24 +6,28 @@ def adicionaPreferencia(nomejogo, path):
     if type(nomejogo) != str:
         return 1
     data={"tipo":"preferencia-novo-jogo", "dados": {"nome": nomejogo, "preco": 5, "fabricante": "Microny"}}
-    path = path + nomejogo
+    path = path + nomejogo + ".json"
     with open(path , "w") as arq:
         json.dump(data,arq,indent=4)
     return 0
 
-def compraJogo(nomejogo, pathval, pathpref):
+def compraJogo(nomejogo, pathtabela, pathmsg):
     if type(nomejogo) != str:
         return 1
-    preco = recebePrecoCompra(nomejogo, pathval)
+    preco = recebePrecoCompra(nomejogo, pathtabela)
     if preco < 0:
-        adicionaPreferencia(nomejogo, pathpref)
+        adicionaPreferencia(nomejogo, pathmsg)
         return 3
     if verificaSaldo()>=preco:
         removeSaldo(preco)
         adicionaEstoqueTotal(nomejogo, 1)
+        data={"tipo":"venda-jogo", "dados": nomejogo}
+        path = pathmsg + nomejogo + ".json"
+        with open(path, "w") as arq:
+            json.dump(data,arq, indent = 4)
         return 0
     else:
-        adicionaPreferencia(nomejogo, pathpref)
+        adicionaPreferencia(nomejogo, pathmsg)
         return 2
     return
 
